@@ -1,14 +1,8 @@
-/* === 顏色與基本設定 === */
-/* 
-  :root 是全域變數區，可以定義網站會用到的主要顏色或字型設定。
-  這裡設定了主色、深色版本、文字顏色、背景顏色等。
-  使用時用 var(--變數名稱) 就能套用。
-*/
 :root {
-  --main-color: #f59e0b;   /* 主色：亮橘黃色（按鈕、導覽列背景） */
-  --main-dark: #d97706;    /* 主色加深版（滑鼠移過去時使用） */
-  --text-color: #333;      /* 主要文字顏色（深灰） */
-  --bg-light: #fff8e1;     /* 頁面背景色（淡黃色） */
+  --main-color: #ffc1e0;   /* 主色：亮橘黃色（按鈕、導覽列背景） */
+  --main-dark: #ffaad5;    /* 主色加深版（滑鼠移過去時使用） */
+  --text-color: #545353;      /* 主要文字顏色（深灰） */
+  --bg-light: #ffecf5;     /* 頁面背景色（淡黃色） */
 }
 
 /* === 全站 body 設定 === */
@@ -65,7 +59,8 @@ h1, h2 {
   border: none;                         /* 移除預設邊框 */
   border-radius: 8px;                   /* 圓角 8px */
   cursor: pointer;                      /* 滑鼠移過去變手指圖示 */
-  display: inline-block;                /* 讓按鈕能正常排列 */
+  display: inline-block;  
+               /* 讓按鈕能正常排列 */
 }
 
 /* 滑鼠移到按鈕時的顏色變化 */
@@ -89,7 +84,7 @@ th, td {
 
 /* 表頭（th）另外加上背景色 */
 th {
-  background-color: #fff3cd;   /* 淡黃色背景 */
+  background-color: #ffaad5;   /* 淡黃色背景 */
 }
 
 /* === 表單樣式 === */
@@ -141,6 +136,35 @@ label {
 .gallery img:hover {
   transform: scale(1.05);                    /* 放大 5% */
 }
+.btn:hover {
+  background-color: var(--main-dark);  
+  /* 顏色變化：
+     當滑鼠移上去時，背景顏色會改成 --main-dark（主色加深版），
+     給使用者「可互動」的視覺回饋。 */
+
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);  
+  /* 陰影效果：
+     在按鈕下方產生柔和陰影（X 位移 0、Y 位移 4px、模糊 8px），
+     顏色為半透明黑色 rgba(0,0,0,0.2)。
+     讓按鈕看起來浮起、有立體感。 */
+
+  transform: translateY(-2px);  
+  /* 位移效果：
+     按鈕在 hover 時往上移動 2px，
+     模擬「浮起」的感覺。配合 box-shadow 看起來更真實。 */
+}
+.btn:active {
+  transform: translateY(1px);  
+  /* 向下位移：
+     當按鈕被點擊（滑鼠按住未放開）時，
+     元素會向下移動 1px，
+     模擬「被按下去」的視覺效果。 */
+
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  /* 陰影變小：
+     陰影的距離（Y=2px, 模糊=4px）比 hover 狀態更小，
+     看起來像是按鈕貼近背景、真的被壓下去了。 */
+}
 .avatar {
   width: 250px;              /* 頭貼大小 */
   height: 250px;             /* 設定高度，確保為正方形 */
@@ -149,14 +173,4 @@ label {
   display: block;            /* 讓圖片可以置中 */
   margin: 0 auto;            /* 水平置中 */
   box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* 加一點陰影讓頭貼更立體 */
-  transition: transform 0.2s ease; /* 加上動畫過渡 */
-}
-
-.avatar:hover {
-  transform: scale(1.05);    /* 滑鼠移上去放大 */
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25); /* 陰影加強，產生懸浮感 */
-}
-.btn-group {
-  text-align: right; /* 改成 right 就靠右 */
-  margin-top: 10px;
 }
